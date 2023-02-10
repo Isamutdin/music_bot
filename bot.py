@@ -6,7 +6,7 @@ from aiogram.utils import executor
 from pars import download_video, download_playlist
 from os import remove
 
-TOKEN = "1705450152:AAGnaIFa2xgob03m9dkD2Ja6QdDRL-fUyVA"
+TOKEN = ""
 bot = Bot(token=TOKEN)
 storage = MemoryStorage()
 dp = Dispatcher(bot, storage=storage)
