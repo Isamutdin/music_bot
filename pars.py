@@ -1,4 +1,3 @@
-from operator import mul
 from pytube import YouTube
 from pytube import Playlist
 import requests

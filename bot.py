@@ -6,12 +6,9 @@ from aiogram.utils import executor
 from pars import download_videoYT, download_playlistYT, check_videoYT, create_videoYT
 from os import remove
 
-#keyboard = types.ReplyKeyboardRemove(True)
-
 
 with open("TOKEN.txt", 'r') as f: 
     TOKEN = f.read()
-
 
 bot = Bot(token=TOKEN)
 storage = MemoryStorage()
