@@ -35,6 +35,7 @@ def create_videoYT(info):
 def download_playlistYT(url):
     pl = Playlist(url)
     spisok = []
+    print(pl.playlist_id)
     for video in pl.videos:
         spisok.append(video.streams.filter(mime_type="audio/mp4").first().download(r'F:\music_bot\audio'))
     return spisok
@@ -47,6 +48,7 @@ if __name__ == "__main__":
     #5208514073:AAE4tGvLhsCeWAaR1Cuv8C30YSScqvuyuXk
     #1770295162
     #1705450152
+    #753511174 - Gosha
     #1063089542 - Саня
     #585067098 - Катя
     #692175727 - Матвей
@@ -61,11 +63,11 @@ if __name__ == "__main__":
     #         'url_img':'http://img.youtube.com/vi/fJc3WBiWEos/mqdefault.jpg',
     #         'author': 'Swap',
     #     }
-    data = {'token': '', 'url': 'https://youtube.com/watch?v=fC1HF29n9UA', 'title': 'DVRST, OBLXKQ - ENDLESS LOVE', 'url_img': 'http://img.youtube.com/vi/fC1HF29n9UA/mqdefault.jpg', 'author': 'DVRST', 'yt_id': 'fC1HF29n9UA', 'video_id': 'CQACAgIAAxkDAAILvGP1JxrLiGMR-1ugWuf5t71-NDsyAALyJgACPyqpS1U06JX96hR1LgQ', 'telegram_id': 1770295162}
-    r = (requests.post('http://127.0.0.1:8000/api/v1/videoYT/', data=data).json())
-    print(r)
-    data['video']= r['video']
-    print(requests.post(DOMEN+APIUSER, data=data).text)
+    # data = {'token': '', 'url': 'https://youtube.com/watch?v=fC1HF29n9UA', 'title': 'DVRST, OBLXKQ - ENDLESS LOVE', 'url_img': 'http://img.youtube.com/vi/fC1HF29n9UA/mqdefault.jpg', 'author': 'DVRST', 'yt_id': 'fC1HF29n9UA', 'video_id': 'CQACAgIAAxkDAAILvGP1JxrLiGMR-1ugWuf5t71-NDsyAALyJgACPyqpS1U06JX96hR1LgQ', 'telegram_id': 1770295162}
+    # r = (requests.post('http://127.0.0.1:8000/api/v1/videoYT/', data=data).json())
+    # print(r)
+    # data['video']= r['video']
+    # print(requests.post(DOMEN+APIUSER, data=data).text)
     # data = {
     #     'audio': 'CQACAgIAAxkDAAIKLGPvq6fx9KFF2Tkla6GHnD3081dlAAL0IQACEYaBSw_w0_wwEGihLgQ',
     #     'chat_id': '1705450152',
@@ -74,4 +76,4 @@ if __name__ == "__main__":
     # yt = YouTube('https://www.youtube.com/watch?v=fJc3WBiWEos')
     # v = yt.streams.filter(mime_type="audio/mp4").first().download(r'F:\music_bot\audio')
     # print(yt.author, yt.watch_url)
-    
+    print(download_playlistYT('https://www.youtube.com/playlist?list=PLA0M1Bcd0w8xZA3Kl1fYmOH_MfLpiYMRs'))

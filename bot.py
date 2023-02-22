@@ -34,11 +34,10 @@ async def end_v(message: types.Message, state: FSMContext):
 
 @dp.message_handler(state=Video.video)
 async def douwnload_v(message: types.Message):
-    url = message.text.split("&")[0].replace("www.", '')
-    r = check_videoYT(url.split("/")[-1])
+    url = message.text.split("&")[0].replace("www.", '').split("/")[-1]
+    r = check_videoYT(url)
     if r:
         await bot.send_audio(message.chat.id, r)
-
     else:
         name, info = download_videoYT(message.text)
         result = await bot.send_audio(message.chat.id, open(name, 'rb'))
